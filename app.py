@@ -58,10 +58,10 @@ def index():
 def get_group():
     # Get the JSON data from the request
     data = request.get_json()
-    print(data)    
+    # print(data)    
     predict = predict_classification_scores(data['name'])
     if predict[0][0][0] is not None:        
-        return {"status":"success","category": predict[0][0][0],"score":predict[0][0][1]}, 200
+        return {"status":"success","pred_assignment_group": predict[0][0][0],"pred_assignment_group_score":predict[0][0][1]}, 200
     else:
         return {"status":"Some error occurred"}
 
